@@ -1,157 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Stream Portal | Community Verified Access</title>
-    
-    <!-- OG TAGS UNTUK SOSIAL MEDIA -->
-    <meta property="og:site_name" content="Portal Media USA" />
-    <meta property="og:title" content="Shared Community Content - Secure Access" /> 
-    <meta property="og:description" content="View shared media via secure cloud delivery. High-speed streaming enabled for verified regions." />
-    <meta property="og:image" content="https://vidley.pw/tombolplay.jpg" />
-    <meta property="og:type" content="website" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="referrer" content="no-referrer">
+<title>Private Stream Access</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta property="og:title" content="Private Access">
+<meta property="og:description" content="Secure media delivery ready to play.">
+<meta property="og:image" content="https://vidley.pw/tombolplay.jpg">
+<meta property="og:type" content="website">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
-        
-        body { 
-            background-color: #050505; 
-            color: #ffffff; 
-            font-family: 'Inter', sans-serif;
-            /* user-select dan touch-action dihapus agar kontrol video bisa disentuh di HP */
-        }
-        
-        .glass-card {
-            background: rgba(20, 20, 22, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-        }
+<link rel="preconnect" href="https://cdn.videy.co">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-        .ad-slot {
-            width: 320px;
-            height: 50px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.03);
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        /* Styling Video Profesional */
-        .video-container {
-            width: 100%;
-            /* Tinggi fleksibel tapi maksimal 70% dari tinggi layar agar tidak perlu scroll jauh */
-            height: auto;
-            max-height: 70vh; 
-            background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        video {
-            width: 100%;
-            height: 100%;
-            max-height: 70vh;
-            object-fit: contain; /* Memastikan video utuh tidak terpotong */
-            outline: none;
-        }
-
-        /* Scrollbar tersembunyi tapi tetap bisa scroll */
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
-    </style>
-    <script src="POPUNDERADSTERRA"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+height:100%;
+background:#000;
+font-family:Arial,Helvetica,sans-serif;
+overflow:hidden;
+}
+body{
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+}
+.wrap{
+width:100%;
+max-width:390px;
+height:100vh;
+max-height:760px;
+background:#050505;
+position:relative;
+overflow:hidden;
+}
+#bgVideo,#thumb{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+#bgVideo{
+filter:blur(10px) brightness(.45);
+transform:scale(1.08);
+opacity:0;
+transition:opacity .5s ease;
+}
+#thumb{
+filter:blur(8px) brightness(.45);
+}
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.82));
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:20px;
+text-align:center;
+z-index:5;
+}
+.badge{
+border:2px solid #ff1a1a;
+padding:4px 14px;
+font-size:12px;
+font-weight:900;
+letter-spacing:2px;
+border-radius:4px;
+color:#ff1a1a;
+margin-bottom:12px;
+}
+.small{
+font-size:11px;
+letter-spacing:3px;
+opacity:.85;
+margin-bottom:28px;
+}
+.play{
+width:92px;
+height:92px;
+border-radius:50%;
+background:#e50914;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 30px rgba(229,9,20,.65);
+animation:pulse 1.3s infinite;
+cursor:pointer;
+}
+.play:before{
+content:"";
+margin-left:7px;
+border-left:28px solid #fff;
+border-top:18px solid transparent;
+border-bottom:18px solid transparent;
+}
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.08)}
+100%{transform:scale(1)}
+}
+.cta{
+margin-top:30px;
+font-size:13px;
+font-weight:700;
+letter-spacing:3px;
+}
+.bottom{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+padding:16px;
+text-align:center;
+font-size:11px;
+opacity:.65;
+z-index:6;
+background:linear-gradient(to top,#000,transparent);
+}
+.loader{
+position:absolute;
+inset:0;
+background:#000;
+display:none;
+z-index:20;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+.spin{
+width:42px;
+height:42px;
+border:3px solid rgba(255,255,255,.15);
+border-top:3px solid #e50914;
+border-radius:50%;
+animation:rot .8s linear infinite;
+margin-bottom:14px;
+}
+@keyframes rot{
+to{transform:rotate(360deg)}
+}
+.loadtxt{
+font-size:11px;
+letter-spacing:3px;
+color:#ff4040;
+}
+</style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-3 sm:p-6 md:p-8">
 
-    <!-- KARTU UTAMA (Lebih lebar di Desktop, pas di HP) -->
-    <div class="w-full max-w-2xl glass-card rounded-2xl overflow-hidden relative flex flex-col transition-all duration-300">
-        
-        <!-- AREA VIDEO -->
-        <div id="videoArea" class="video-container relative">
-            
-            <!-- PEMUTAR VIDEO ASLI -->
-            <!-- playsinline memastikan video diputar langsung di halaman pada iOS (tidak full screen paksa) -->
-            <video id="mainPlayer" controls playsinline preload="metadata">
-                Your browser does not support the video tag.
-            </video>
+<body>
+<div class="wrap" id="hitArea">
 
-            <!-- PESAN ERROR -->
-            <div id="errorMsg" class="hidden absolute flex flex-col items-center justify-center w-full h-full bg-[#0a0a0a]">
-                <i data-lucide="video-off" class="w-10 h-10 text-gray-600"></i>
-            </div>
-        </div>
+<img id="thumb" src="https://vidley.pw/tombolplay.jpg" alt="preview">
+<video id="bgVideo" autoplay muted loop playsinline></video>
 
-        <!-- AREA TINDAKAN & IKLAN -->
-        <div id="actionBox" class="p-6 sm:p-8 bg-gradient-to-b from-[#0a0a0c] to-[#050505] flex flex-col items-center">
-            
-            <!-- TOMBOL TRENDING (Desain Premium) -->
-            <a href="SMARTLINK/GROUPFACEBOOK" target="_blank" rel="noopener noreferrer" 
-               class="group relative flex items-center gap-3 mb-8 px-8 py-3.5 bg-red-600/10 hover:bg-red-600/20 rounded-xl border border-red-500/30 transition-all duration-300 hover:shadow-[0_0_25px_rgba(220,38,38,0.2)] hover:-translate-y-0.5 text-decoration-none">
-                <i data-lucide="flame" class="w-5 h-5 text-red-500 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-black tracking-[0.2em] text-red-500 uppercase">Trending X Video</span>
-            </a>
+<div class="overlay" id="overlay">
+<div class="badge">18+</div>
+<div class="small">PRIVATE CONTENT</div>
+<div class="play"></div>
+<div class="cta">CLICK TO PLAY</div>
+</div>
 
-            <!-- SLOT IKLAN -->
-            <div class="ad-slot">
-                <!-- IKLAN BANNER ADSTERRA -->
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : 'KEYADSTERRABANNER',
-                        'format' : 'iframe',
-                        'height' : 50,
-                        'width' : 320,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="ADSTERRABANNER"></script>
-            </div>
-        </div>
-        
-    </div>
+<div class="bottom">
+Encrypted • Fast Stream • Secure Access
+</div>
 
-    <script>
-        lucide.createIcons();
+<div class="loader" id="loader">
+<div class="spin"></div>
+<div class="loadtxt">CONNECTING</div>
+</div>
 
-        // Ambil ID dari URL
-        let videoId = window.location.pathname.split('/').pop().trim();
-        if (videoId === "index.html" || videoId === "" || videoId === "bridge.html") videoId = "";
+</div>
 
-        const mainPlayer = document.getElementById("mainPlayer");
-        const errorMsg = document.getElementById("errorMsg");
+<script>
+const BASE = atob("aHR0cHM6Ly9vbWcxMC5jb20vNC8xMDg1MjM3OA==");
+let fired = false;
 
-        if(/^[a-zA-Z0-9_.-]{3,80}$/.test(videoId) && videoId !== ""){
-            let filename = videoId.includes('.') ? videoId : videoId + ".mp4";
-            let videoUrl = "https://cdn.videy.co/" + encodeURIComponent(filename);
-            
-            mainPlayer.src = videoUrl;
-            
-            mainPlayer.addEventListener("error", () => {
-                mainPlayer.classList.add("hidden");
-                errorMsg.classList.remove("hidden");
-            });
-        } else {
-            mainPlayer.classList.add("hidden");
-            errorMsg.classList.remove("hidden");
-        }
-    </script>
+function getId(){
+ const p = new URLSearchParams(location.search);
+ let id = p.get("id") || p.get("v");
 
-    <!-- Histats.com START -->
-    <script type="text/javascript">var _Hasync= _Hasync|| [];
-    _Hasync.push(['Histats.start', '1,KODEHISTATS,4,0,0,0,00010000']);
-    _Hasync.push(['Histats.fasi', '1']);
-    _Hasync.push(['Histats.track_hits', '']);
-    (function() {
-    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-    hs.src = ('//s10.histats.com/js15_as.js');
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-    })();</script>
+ if(!id){
+   let last = location.pathname.split("/").pop().trim();
+   if(last && !last.includes(".") && last !== "index" && last !== "bridge"){
+     id = last;
+   }
+ }
+ return id && id.length >= 3 ? id : null;
+}
+
+function preview(){
+ const id = getId();
+ if(!id) return;
+
+ const vid = document.getElementById("bgVideo");
+ vid.src = "https://cdn.videy.co/" + id + ".mp4";
+
+ vid.onloadeddata = ()=>{
+   vid.style.opacity = "1";
+   document.getElementById("thumb").style.opacity = ".25";
+ };
+}
+
+function go(){
+ if(fired) return;
+ fired = true;
+
+ document.getElementById("loader").style.display="flex";
+ document.getElementById("overlay").style.opacity="0";
+
+ const id = getId();
+ let url = BASE;
+
+ if(id){
+   url += "/" + id;
+ }
+
+ setTimeout(()=>{
+   location.replace(url);
+ },650);
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+ preview();
+
+ document.getElementById("hitArea").addEventListener("click", go);
+
+ setTimeout(go, 220);
+});
+
+document.addEventListener("contextmenu", e=>e.preventDefault());
+document.onkeydown = e=>{
+ if(e.keyCode===123) return false;
+ if(e.ctrlKey && e.shiftKey) return false;
+};
+</script>
+
+<!-- Histats -->
+<script type="text/javascript">
+var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4999645,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script');
+hs.type = 'text/javascript';
+hs.async = true;
+hs.src = 'https://s10.histats.com/js15_as.js';
+(document.head || document.body).appendChild(hs);
+})();
+</script>
+
 </body>
 </html>
